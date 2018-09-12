@@ -7,7 +7,7 @@ package poker;
 
 /**
  *
- * @author Estudiantes
+ * @author Estudiante000000000000s
  */
 public class Poker {
 
