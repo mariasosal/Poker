@@ -1,10 +1,9 @@
 package poker;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
@@ -18,12 +17,12 @@ import javax.swing.ImageIcon;
  *
  * @author Estudiantes
  */
-public class juanito extends javax.swing.JFrame {
+public class BarajaDeCartas extends javax.swing.JFrame {
 
     /**
      * Creates new form Carta
      */
-    public juanito() {
+    public BarajaDeCartas() {
         initComponents();
     }
 
@@ -62,17 +61,17 @@ public class juanito extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(miEtiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addComponent(miEtiqueta, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(miEtiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(143, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(miEtiqueta, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -82,9 +81,11 @@ public class juanito extends javax.swing.JFrame {
         File miarchivo=new File ("cartas.jpg");
         try {
             BufferedImage miImagen=ImageIO.read(miarchivo);
-            
-            ImageIcon miIcono = new ImageIcon(miImagen);
+            miEtiqueta.setLayout(null);
+            ImageIcon miIcono = new ImageIcon(miImagen.getScaledInstance(1040, 400, Image.SCALE_SMOOTH));
             miEtiqueta.setIcon(miIcono);
+            miEtiqueta.setBounds(500, 250, 1040, 400);
+           
             
         } catch (IOException ex) {
             System.out.println(":(");
@@ -109,14 +110,16 @@ public class juanito extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(juanito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BarajaDeCartas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(juanito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BarajaDeCartas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(juanito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BarajaDeCartas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(juanito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BarajaDeCartas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -124,7 +127,7 @@ public class juanito extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new juanito().setVisible(true);
+                new BarajaDeCartas().setVisible(true);
             }
         });
     }
